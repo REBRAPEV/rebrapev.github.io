@@ -1,0 +1,25 @@
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="REBRAPEV — página inicial">
+      <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span class="brand-name">REBRAPEV</span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      {% for item in site.data.navigation.main %}
+        <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      {% endfor %}
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Alternar tema" title="Alternar tema">◐</button>
+    </nav>
+
+    <details class="mobile-nav">
+      <summary aria-label="Abrir menu">Menu</summary>
+      <nav aria-label="Navegação móvel">
+        {% for item in site.data.navigation.main %}
+          <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        {% endfor %}
+        <button class="theme-toggle" type="button" data-theme-toggle>Alternar tema</button>
+      </nav>
+    </details>
+  </div>
+</header>

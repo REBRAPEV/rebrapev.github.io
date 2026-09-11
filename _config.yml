@@ -1,0 +1,25 @@
+title: REBRAPEV
+description: "Rede brasileira para pesquisa, formação e colaboração em ciência e tecnologia de vidros."
+url: "https://rebrapev.github.io"
+baseurl: ""
+lang: pt-BR
+timezone: America/Sao_Paulo
+
+markdown: kramdown
+permalink: pretty
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-redirect-from
+
+exclude:
+  - README.md
+  - LICENSE
+  - NOTICE.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+
+sass:
+  style: compressed

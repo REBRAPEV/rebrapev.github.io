@@ -1,0 +1,13 @@
+main:
+  - title: Sobre
+    url: /sobre/
+  - title: Rede
+    url: /rede/
+  - title: Pesquisa
+    url: /pesquisa/
+  - title: Eventos
+    url: /eventos/
+  - title: Recursos
+    url: /recursos/
+  - title: Contato
+    url: /contato/

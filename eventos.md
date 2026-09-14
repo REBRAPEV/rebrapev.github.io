@@ -15,6 +15,17 @@ lead: "Reuniões da rede, escolas, encontros científicos e outras atividades de
 
 A reunião tem como objetivo discutir a estruturação da REBRAPEV, incluindo prioridades da comunidade, formas de organização e próximos passos.
 
+<div class="meeting-gallery">
+  <figure>
+    <img src="https://ufpr.br/wp-content/uploads/2022/08/e521c589-b2bf-4b45-a9bf-474e74583dc9-800x450.jpg" alt="Departamento de Química da UFPR" loading="lazy">
+    <figcaption>Departamento de Química da UFPR. Foto: UFPR.</figcaption>
+  </figure>
+  <figure>
+    <img src="https://ufpr.br/wp-content/uploads/2022/11/solivan6.jpg" alt="Auditório do Departamento de Química da UFPR" loading="lazy">
+    <figcaption>Auditório do Departamento de Química da UFPR. Foto: UFPR.</figcaption>
+  </figure>
+</div>
+
 As informações logísticas e eventuais atualizações serão comunicadas aos inscritos.
 
 ## Próximas atividades

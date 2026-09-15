@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="REBRAPEV">
+  <title>REBRAPEV</title>
+  <style>
+    :root { --brand: #145f6b; --accent: #b86234; }
+    @media (prefers-color-scheme: dark) {
+      :root { --brand: #7fccd5; --accent: #e0a079; }
+    }
+  </style>
+  <g fill="none" stroke="var(--brand)" stroke-width="3" stroke-linecap="round">
+    <path d="M21.3 9.15L32.1 15.45M32.1 15.45L38.4 26.25M38.4 26.25L33.9 37.05M33.9 37.05L22.2 38.85M22.2 38.85L11.4 32.55M11.4 32.55L9.6 20.85M9.6 20.85L12.3 11.85M12.3 11.85L21.3 9.15"/>
+    <path d="M20.4 20.85L28.5 27.15M20.4 20.85L21.3 9.15M20.4 20.85L9.6 20.85M28.5 27.15L33.9 37.05"/>
+  </g>
+  <g fill="var(--brand)">
+    <circle cx="21.3" cy="9.15" r="3.6"/>
+    <circle cx="32.1" cy="15.45" r="3.6"/>
+    <circle cx="38.4" cy="26.25" r="3.6"/>
+    <circle cx="33.9" cy="37.05" r="3.6"/>
+    <circle cx="22.2" cy="38.85" r="3.6"/>
+    <circle cx="11.4" cy="32.55" r="3.6"/>
+    <circle cx="9.6" cy="20.85" r="3.6"/>
+    <circle cx="12.3" cy="11.85" r="3.6"/>
+    <circle cx="20.4" cy="20.85" r="3.6"/>
+  </g>
+  <circle cx="28.5" cy="27.15" r="5" fill="var(--accent)"/>
+</svg>

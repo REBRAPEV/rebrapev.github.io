@@ -8,17 +8,18 @@ lead: "Reuniões da rede, escolas, encontros científicos e outras atividades de
 
 ## 28 de setembro de 2026 — Reunião de estruturação da REBRAPEV
 
-**Horário:** 14:00–16:00  
+**Horário:** 13:00–14:00  
 **Local:** Cruzeiro do Sul Conecta, Curitiba, PR  
 **Formato:** presencial  
-**Contexto:** XXIV B-MRS Meeting (SBPMat)
+**Contexto:** XXIV B-MRS Meeting (SBPMat)  
+**Participantes:** cerca de 45, metade deles pesquisadores principais de diferentes instituições do país
 
 A reunião teve como objetivo discutir a estruturação da REBRAPEV, incluindo prioridades da comunidade, formas de organização e próximos passos.
 
 <div class="meeting-gallery meeting-gallery--single">
   <figure>
     <img src="{{ '/assets/images/reuniao-estruturacao-rebrapev-2026.jpg' | relative_url }}" alt="Participantes reunidos ao final da reunião de estruturação da REBRAPEV, em Curitiba" loading="lazy">
-    <figcaption>Participantes da reunião de estruturação da REBRAPEV, durante o XXIV B-MRS Meeting. Curitiba, 28 de setembro de 2026.</figcaption>
+    <figcaption>Cerca de 45 participantes na reunião de estruturação da REBRAPEV, durante o XXIV B-MRS Meeting. Curitiba, 28 de setembro de 2026.</figcaption>
   </figure>
 </div>
 

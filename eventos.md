@@ -6,7 +6,7 @@ eyebrow: Agenda
 lead: "Reuniões da rede, escolas, encontros científicos e outras atividades de interesse da comunidade."
 ---
 
-## 28 de setembro de 2026 — Reunião de estruturação da REBRAPEV
+## 28 de setembro de 2026 — Reunião de kickoff da REBRAPEV
 
 **Horário:** 13:00–14:00  
 **Local:** Cruzeiro do Sul Conecta, Curitiba, PR  
@@ -18,8 +18,8 @@ A reunião teve como objetivo discutir a estruturação da REBRAPEV, incluindo p
 
 <div class="meeting-gallery meeting-gallery--single">
   <figure>
-    <img src="{{ '/assets/images/reuniao-estruturacao-rebrapev-2026.jpg' | relative_url }}" alt="Participantes reunidos ao final da reunião de estruturação da REBRAPEV, em Curitiba" loading="lazy">
-    <figcaption>Cerca de 45 participantes na reunião de estruturação da REBRAPEV, durante o XXIV B-MRS Meeting. Curitiba, 28 de setembro de 2026.</figcaption>
+    <img src="{{ '/assets/images/reuniao-estruturacao-rebrapev-2026.jpg' | relative_url }}" alt="Participantes reunidos ao final da reunião de kickoff da REBRAPEV, em Curitiba" loading="lazy">
+    <figcaption>Cerca de 45 participantes na reunião de kickoff da REBRAPEV, durante o XXIV B-MRS Meeting. Curitiba, 28 de setembro de 2026.</figcaption>
   </figure>
 </div>
 

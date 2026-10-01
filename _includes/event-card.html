@@ -1,0 +1,38 @@
+{%- comment -%}
+  Event card, shared by /eventos/ and the home page.
+  Parameters:
+    event     an _eventos document
+    heading   heading tag for the title (default h3)
+    featured  true: the larger home-page version (date column, summary,
+              "Detalhes" button and the cover photo at full width)
+{%- endcomment -%}
+{%- assign ev = include.event -%}
+{%- assign tag = include.heading | default: 'h3' -%}
+{%- if include.featured -%}
+<div class="event-card">
+  <div class="event-date">{% include event-date.html event=ev %}{% if ev.time %}<br>{{ ev.time }}{% endif %}</div>
+  <div>
+    <{{ tag }}>{{ ev.location }}</{{ tag }}>
+    {%- if ev.summary %}
+    <p>{{ ev.summary }}</p>
+    {%- endif %}
+  </div>
+  <a class="button secondary" href="{{ ev.url | relative_url }}">Detalhes</a>
+</div>
+{%- if ev.cover %}
+{% include event-figure.html src=ev.cover alt=ev.cover_alt caption=ev.cover_caption wide=true %}
+{%- endif -%}
+{%- else -%}
+<article class="event-item">
+  {%- if ev.cover %}
+  <img class="event-item__thumb" src="{{ ev.cover | relative_url }}" alt="" width="192" height="108" loading="lazy">
+  {%- endif %}
+  <div class="event-item__body">
+    <p class="event-item__meta">{% include event-date.html event=ev %}{% if ev.location %} · {{ ev.location }}{% endif %}</p>
+    <{{ tag }} class="event-item__title"><a href="{{ ev.url | relative_url }}">{{ ev.title }}</a></{{ tag }}>
+    {%- if ev.summary %}
+    <p class="event-item__summary">{{ ev.summary }}</p>
+    {%- endif %}
+  </div>
+</article>
+{%- endif -%}

@@ -8,13 +8,58 @@ Source for the REBRAPEV organization website at https://rebrapev.github.io.
 - `_data/navigation.yml`: main navigation
 - `_layouts/` and `_includes/`: shared page structure
 - `assets/css/main.css`: visual design
-- `assets/images/`: logo, icons and photographs
+- `assets/images/`: logo, icons and photographs (event photos in `assets/images/eventos/<slug>/`)
+- `_eventos/`: one Markdown file per event (Jekyll collection, see below)
 - `assets/js/theme.js`: light/dark theme toggle
 - root Markdown files: public site sections
 
 ## Editing content
 
 Most routine updates only require editing a Markdown file. Navigation labels and destinations are centralized in `_data/navigation.yml`.
+
+## Adding an event
+
+Each event is one file in `_eventos/`, published at `/eventos/<file name>/`. The
+index at `/eventos/` and the event block on the home page are generated from these
+files, so nothing else needs editing.
+
+1. Copy an existing file in `_eventos/` and name it `AAAA-MM-DD-short-name.md`
+   (the name becomes the URL, e.g. `/eventos/2026-09-28-kickoff-curitiba/`).
+2. Fill in the front matter:
+
+   ```yaml
+   title: "Event title"
+   date: 2027-03-10          # start date: sorting and upcoming/past split
+   end_date: 2027-03-12      # optional, multi-day events
+   time: "09:00–18:00"       # optional
+   location: "Venue, City, UF"
+   format: presencial        # presencial | online | híbrido
+   context: "Host event"     # optional
+   participants: "..."       # optional
+   type: rede                # rede (REBRAPEV event) | comunidade (event of interest)
+   summary: "One sentence for the index card and the home page."
+   cover: /assets/images/eventos/<slug>/photo.jpg      # optional
+   cover_alt: "Description of the photo"
+   cover_caption: "Caption on the home page"          # optional
+   gallery:                  # optional
+     - src: /assets/images/eventos/<slug>/photo.jpg
+       alt: "Description of the photo"
+       caption: "Caption. <span>City, date.</span>"
+       width: 2000
+       height: 1126
+       wide: true            # full width; items without it go two per row
+   ```
+
+3. Write the description below the front matter. The gallery appears after the
+   text, or where you put the line `<!-- galeria -->` (use it once). A single extra
+   photo can be placed anywhere in the text with
+   `{% include event-figure.html src="..." alt="..." caption="..." width="..." height="..." wide=true %}`.
+4. Put the photos in `assets/images/eventos/<slug>/`, where `<slug>` is the file
+   name without `.md`.
+
+"Próximos eventos" versus "Eventos realizados" is decided when the site is built
+(GitHub Pages is static): an event moves to the past list on the first build after
+its last day. Pushing any change, or re-running the Pages build, refreshes it.
 
 ## Local preview
 

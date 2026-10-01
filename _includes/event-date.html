@@ -1,0 +1,11 @@
+{%- comment -%}
+  Event date in dd.mm.aaaa format, as a range when end_date is set.
+  Parameter: event (an _eventos document).
+{%- endcomment -%}
+{%- assign ev = include.event -%}
+<time datetime="{{ ev.date | date: '%Y-%m-%d' }}">{{ ev.date | date: '%d.%m.%Y' }}</time>
+{%- if ev.end_date -%}
+  {%- assign start_day = ev.date | date: '%Y-%m-%d' -%}
+  {%- assign end_day = ev.end_date | date: '%Y-%m-%d' -%}
+  {%- if end_day != start_day %}–<time datetime="{{ end_day }}">{{ ev.end_date | date: '%d.%m.%Y' }}</time>{% endif -%}
+{%- endif -%}

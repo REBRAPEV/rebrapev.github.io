@@ -1,0 +1,16 @@
+{%- comment -%}
+  Event gallery. Parameter: images (list of {src, alt, caption, width, height, wide}).
+  Items with wide: true get a full-width row; consecutive other items share a
+  two-column .meeting-gallery (one column on phones).
+{%- endcomment -%}
+{%- assign grid_open = false -%}
+{%- for image in include.images -%}
+  {%- if image.wide -%}
+    {%- if grid_open %}</div>{% assign grid_open = false %}{% endif %}
+{% include event-figure.html src=image.src alt=image.alt caption=image.caption width=image.width height=image.height wide=true %}
+  {%- else -%}
+    {%- unless grid_open %}<div class="meeting-gallery">{% assign grid_open = true %}{% endunless %}
+{% include event-figure.html src=image.src alt=image.alt caption=image.caption width=image.width height=image.height %}
+  {%- endif -%}
+{%- endfor -%}
+{%- if grid_open %}</div>{% endif -%}

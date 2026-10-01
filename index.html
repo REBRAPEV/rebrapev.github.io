@@ -54,28 +54,34 @@ description: "REBRAPEV — rede brasileira para pesquisa, formação e colabora�
   </div>
 </section>
 
+{%- comment -%}
+  Featured event: the next upcoming one, or else the most recent past one.
+  Decided at build time, like the lists on /eventos/.
+{%- endcomment -%}
+{%- assign today = site.time | date: '%Y-%m-%d' -%}
+{%- assign featured_event = nil -%}
+{%- assign featured_upcoming = false -%}
+{%- assign sorted_events = site.eventos | sort: 'date' -%}
+{%- for ev in sorted_events -%}
+  {%- assign last_day = ev.end_date | default: ev.date | date: '%Y-%m-%d' -%}
+  {%- if last_day >= today -%}
+    {%- assign featured_event = ev -%}
+    {%- assign featured_upcoming = true -%}
+    {%- break -%}
+  {%- endif -%}
+  {%- assign featured_event = ev -%}
+{%- endfor %}
+{%- if featured_event %}
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <p class="eyebrow">Encontro realizado</p>
-      <h2>Reunião de kickoff da REBRAPEV</h2>
+      <p class="eyebrow">{% if featured_upcoming %}Próximo evento{% else %}Encontro realizado{% endif %}</p>
+      <h2>{{ featured_event.title }}</h2>
     </div>
-    <div class="event-card">
-      <div class="event-date">28 set 2026<br>13:00–14:00</div>
-      <div>
-        <h3>Curitiba · Cruzeiro do Sul Conecta</h3>
-        <p>Realizada no Cruzeiro do Sul Conecta, sede do XXIV B-MRS Meeting (SBPMat), em Curitiba. Reuniu cerca de 45 participantes, metade deles pesquisadores principais de diferentes instituições do país, e foi dedicada à estruturação da rede, às prioridades da comunidade e aos próximos passos.</p>
-      </div>
-      <a class="button secondary" href="{{ '/eventos/' | relative_url }}">Detalhes</a>
-    </div>
-    <div class="meeting-gallery meeting-gallery--single" aria-label="Reunião de kickoff da REBRAPEV">
-      <figure>
-        <img src="{{ '/assets/images/reuniao-estruturacao-rebrapev-2026.jpg' | relative_url }}" alt="Participantes reunidos ao final da reunião de kickoff da REBRAPEV, em Curitiba" loading="lazy">
-        <figcaption>Cerca de 45 participantes na reunião de kickoff da REBRAPEV, durante o XXIV B-MRS Meeting. <span>Curitiba, 28 de setembro de 2026.</span></figcaption>
-      </figure>
-    </div>
+    {% include event-card.html event=featured_event featured=true %}
   </div>
 </section>
+{%- endif %}
 
 <section class="section tinted">
   <div class="wrap">

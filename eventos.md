@@ -5,24 +5,55 @@ title: Eventos e reuniões
 eyebrow: Agenda
 lead: "Reuniões da rede, escolas, encontros científicos e outras atividades de interesse da comunidade."
 ---
+{%- comment -%}
+  Each event is a file in _eventos/ (see README.md). GitHub Pages builds the
+  site statically, so "upcoming" versus "past" is decided at build time
+  (site.time): an event stays under "Próximos eventos" until the next build
+  after its last day (end_date, or date for one-day events).
+{%- endcomment -%}
+{%- assign today = site.time | date: '%Y-%m-%d' -%}
+{%- assign upcoming = '' | split: '' -%}
+{%- assign past = '' | split: '' -%}
+{%- assign sorted_events = site.eventos | sort: 'date' -%}
+{%- for ev in sorted_events -%}
+  {%- assign last_day = ev.end_date | default: ev.date | date: '%Y-%m-%d' -%}
+  {%- if last_day >= today -%}
+    {%- assign upcoming = upcoming | push: ev -%}
+  {%- else -%}
+    {%- assign past = past | unshift: ev -%}
+  {%- endif -%}
+{%- endfor %}
 
-## 28 de setembro de 2026 — Reunião de kickoff da REBRAPEV
-
-**Horário:** 13:00–14:00  
-**Local:** Cruzeiro do Sul Conecta, Curitiba, PR  
-**Formato:** presencial  
-**Contexto:** XXIV B-MRS Meeting (SBPMat)  
-**Participantes:** cerca de 45, metade deles pesquisadores principais de diferentes instituições do país
-
-A reunião teve como objetivo discutir a estruturação da REBRAPEV, incluindo prioridades da comunidade, formas de organização e próximos passos.
-
-<div class="meeting-gallery meeting-gallery--single">
-  <figure>
-    <img src="{{ '/assets/images/reuniao-estruturacao-rebrapev-2026.jpg' | relative_url }}" alt="Participantes reunidos ao final da reunião de kickoff da REBRAPEV, em Curitiba" loading="lazy">
-    <figcaption>Cerca de 45 participantes na reunião de kickoff da REBRAPEV, durante o XXIV B-MRS Meeting. Curitiba, 28 de setembro de 2026.</figcaption>
-  </figure>
+<div class="event-index">
+<h2 id="proximos-eventos">Próximos eventos</h2>
+{%- if upcoming.size > 0 %}
+<div class="event-list">
+{%- for ev in upcoming %}
+{% include event-card.html event=ev heading='h3' %}
+{%- endfor %}
 </div>
+{%- else %}
+<p class="event-empty">Não há eventos programados no momento.</p>
+{%- endif %}
 
-## Próximas atividades
-
-Esta página passará a reunir eventos próprios da REBRAPEV e uma seleção de atividades relevantes para a comunidade brasileira de vidros.
+<h2 id="eventos-realizados">Eventos realizados</h2>
+{%- if past.size == 0 %}
+<p class="event-empty">Nenhum evento realizado até o momento.</p>
+{%- endif %}
+{%- assign current_year = '' -%}
+{%- for ev in past -%}
+  {%- assign year = ev.date | date: '%Y' -%}
+  {%- if year != current_year -%}
+    {%- unless forloop.first %}
+</div>
+    {%- endunless %}
+<h3 class="event-year">{{ year }}</h3>
+<div class="event-list">
+    {%- assign current_year = year -%}
+  {%- endif %}
+{% include event-card.html event=ev heading='h4' %}
+  {%- if forloop.last %}
+</div>
+  {%- endif -%}
+{%- endfor %}
+</div>

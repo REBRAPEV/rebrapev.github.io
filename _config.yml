@@ -8,6 +8,22 @@ timezone: America/Sao_Paulo
 markdown: kramdown
 permalink: pretty
 
+# One page per event in _eventos/, published at /eventos/<file name>/.
+# future: true keeps upcoming events published; by default Jekyll drops
+# documents dated after the build date.
+future: true
+collections:
+  eventos:
+    output: true
+    permalink: /eventos/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: eventos
+    values:
+      layout: evento
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap

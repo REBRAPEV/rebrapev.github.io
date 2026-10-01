@@ -1,0 +1,42 @@
+---
+layout: default
+---
+{%- comment -%}
+  Event detail page for documents in _eventos/.
+  The gallery from the front matter is rendered after the body text, or at the
+  point where the body contains the marker <!-- galeria --> (use it once).
+{%- endcomment -%}
+<article class="page-shell event-page">
+  <p class="event-back"><a href="{{ '/eventos/' | relative_url }}">← Todos os eventos</a></p>
+  <header class="page-header">
+    <p class="eyebrow">{% if page.type == 'comunidade' %}Evento de interesse{% else %}Evento da REBRAPEV{% endif %}</p>
+    <h1>{{ page.title }}</h1>
+    <dl class="event-meta">
+      <div><dt>Data</dt><dd>{% include event-date.html event=page %}</dd></div>
+      {%- if page.time %}
+      <div><dt>Horário</dt><dd>{{ page.time }}</dd></div>
+      {%- endif %}
+      {%- if page.location %}
+      <div><dt>Local</dt><dd>{{ page.location }}</dd></div>
+      {%- endif %}
+      {%- if page.format %}
+      <div><dt>Formato</dt><dd>{{ page.format }}</dd></div>
+      {%- endif %}
+      {%- if page.context %}
+      <div><dt>Contexto</dt><dd>{{ page.context }}</dd></div>
+      {%- endif %}
+      {%- if page.participants %}
+      <div><dt>Participantes</dt><dd>{{ page.participants }}</dd></div>
+      {%- endif %}
+    </dl>
+  </header>
+  <div class="prose">
+    {%- assign parts = content | split: '<!-- galeria -->' %}
+    {{ parts[0] }}
+    {%- if page.gallery %}
+    {% include event-gallery.html images=page.gallery %}
+    {%- endif %}
+    {{ parts[1] }}
+  </div>
+  <p class="event-back event-back--end"><a href="{{ '/eventos/' | relative_url }}">← Todos os eventos</a></p>
+</article>

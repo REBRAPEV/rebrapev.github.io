@@ -1,0 +1,13 @@
+{%- comment -%}
+  One event photo with caption.
+  Parameters: src, alt, caption (may contain HTML), width, height,
+  wide (true: wraps the figure in its own full-width .meeting-gallery).
+{%- endcomment -%}
+{%- if include.wide %}<div class="meeting-gallery meeting-gallery--single">{% endif %}
+<figure>
+  <img src="{{ include.src | relative_url }}" alt="{{ include.alt | escape }}"{% if include.width %} width="{{ include.width }}" height="{{ include.height }}"{% endif %} loading="lazy">
+  {%- if include.caption %}
+  <figcaption>{{ include.caption }}</figcaption>
+  {%- endif %}
+</figure>
+{%- if include.wide %}</div>{% endif %}

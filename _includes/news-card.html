@@ -1,0 +1,27 @@
+{%- comment -%}
+  News card, shared by /noticias/ and the home page.
+  Parameters:
+    item      a _noticias document
+    heading   heading tag for the title (default h3)
+    featured  true: larger card for the latest item, with a link to the
+              original article when source_url is set
+{%- endcomment -%}
+{%- assign item = include.item -%}
+{%- assign tag = include.heading | default: 'h3' -%}
+<article class="event-item news-item{% if include.featured %} news-item--featured{% endif %}">
+  {%- if item.image %}
+  <img class="event-item__thumb" src="{{ item.image | relative_url }}" alt="" width="192" height="108" loading="lazy">
+  {%- endif %}
+  <div class="event-item__body">
+    <p class="event-item__meta"><time datetime="{{ item.date | date: '%Y-%m-%d' }}">{{ item.date | date: '%d.%m.%Y' }}</time>{% if item.source %} · {{ item.source }}{% endif %}</p>
+    <{{ tag }} class="event-item__title"><a href="{{ item.url | relative_url }}">{{ item.title }}</a></{{ tag }}>
+    {%- if item.summary %}
+    <p class="event-item__summary">{{ item.summary }}</p>
+    {%- endif %}
+    {%- if include.featured %}
+    <p class="news-item__actions">
+      <span class="news-item__more">Ler mais →</span>
+    </p>
+    {%- endif %}
+  </div>
+</article>

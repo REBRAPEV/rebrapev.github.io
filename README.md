@@ -10,6 +10,7 @@ Source for the REBRAPEV organization website at https://rebrapev.github.io.
 - `assets/css/main.css`: visual design
 - `assets/images/`: logo, icons and photographs (event photos in `assets/images/eventos/<slug>/`)
 - `_eventos/`: one Markdown file per event (Jekyll collection, see below)
+- `_noticias/`: one Markdown file per news item (Jekyll collection, see below)
 - `assets/js/theme.js`: light/dark theme toggle
 - root Markdown files: public site sections
 
@@ -60,6 +61,34 @@ files, so nothing else needs editing.
 "Próximos eventos" versus "Eventos realizados" is decided when the site is built
 (GitHub Pages is static): an event moves to the past list on the first build after
 its last day. Pushing any change, or re-running the Pages build, refreshes it.
+
+## Adding a news item
+
+Each news item is one file in `_noticias/`, published at `/noticias/<file name>/`.
+The index at `/noticias/` shows the most recent item as a larger card and the rest
+below it, newest first.
+
+1. Copy an existing file in `_noticias/` and name it `AAAA-MM-DD-short-name.md`,
+   using the date the item is posted on the site.
+2. Fill in the front matter:
+
+   ```yaml
+   title: "Title in Portuguese"
+   date: 2026-10-08          # date posted on the REBRAPEV site
+   summary: "One or two sentences for the card on /noticias/."
+   source: "Publication name"                 # optional, for external articles
+   source_title: "Original headline"          # optional
+   source_url: "https://..."                  # optional: adds a "Ler a matéria original" box
+   source_lang: fr                            # optional: fr, en, es, de or it
+   source_date: 2026-10-02                    # optional: original publication date
+   image: /assets/images/noticias/<slug>/photo.jpg   # optional, only images we may publish
+   image_alt: "Description of the photo"
+   image_caption: "Caption"
+   ```
+
+3. Write a short text in Portuguese below the front matter, in our own words.
+   For external articles, summarise and link; do not copy the original text or
+   its photos.
 
 ## Local preview
 

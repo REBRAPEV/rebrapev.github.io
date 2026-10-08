@@ -21,38 +21,19 @@ description: "REBRAPEV — rede brasileira para pesquisa, formação e colabora�
   <div class="wrap hero-photo__caption">4ª São Carlos School of Glass · São Carlos, 2026</div>
 </section>
 
-<section class="section tinted">
+{%- comment -%}
+  Latest news item from _noticias/.
+{%- endcomment -%}
+{%- assign latest_news = site.noticias | sort: 'date' | last -%}
+{%- if latest_news %}
+<section class="section tinted home-news">
   <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">O que queremos construir</p>
-      <h2>As primeiras frentes previstas para o site.</h2>
-      <p>A lista não é fechada: estas são as frentes que a rede pretende abrir primeiro, e outras propostas da comunidade são bem-vindas.</p>
-    </div>
-    <div class="card-grid">
-      <article class="card">
-        <h3>Diretório científico da comunidade</h3>
-        <p>Cadastro abrangente de pesquisadores, professores, pós-doutorandos e estudantes atuantes na área.</p>
-      </article>
-      <article class="card">
-        <h3>Divulgação de notícias e avanços</h3>
-        <p>Portal de notícias sobre novas descobertas científicas, inovações tecnológicas e acontecimentos do setor.</p>
-      </article>
-      <article class="card">
-        <h3>Mural de oportunidades</h3>
-        <p>Canal de divulgação de vagas acadêmicas (iniciação científica, mestrado, doutorado, pós-doutorado) e empregos no setor industrial e acadêmico.</p>
-      </article>
-      <article class="card">
-        <h3>Catálogo de infraestrutura e laboratórios</h3>
-        <p>Mapeamento e catálogo centralizado de equipamentos multiusuários (Raman, difratômetros, DSC, dilatômetros) para otimizar o uso da infraestrutura existente no país.</p>
-      </article>
-      <article class="card">
-        <h3>Materiais didáticos para o ensino básico</h3>
-        <p>Guias de experimentos simples e conteúdos educativos para professores do ensino fundamental e médio, despertando o interesse de jovens pela ciência dos materiais.</p>
-      </article>
-    </div>
-    <p class="section-note">Quer contribuir com conteúdo para alguma dessas frentes? Envie o material por e-mail e ele será incorporado ao site — os endereços estão em <a href="{{ '/contato/' | relative_url }}">Contato</a>.</p>
+    <p class="eyebrow">Notícias</p>
+    {% include news-card.html item=latest_news heading='h2' featured=true %}
+    <p class="home-news__all"><a href="{{ '/noticias/' | relative_url }}">Todas as notícias →</a></p>
   </div>
 </section>
+{%- endif %}
 
 {%- comment -%}
   Featured event: the next upcoming one, or else the most recent past one.
@@ -102,5 +83,38 @@ description: "REBRAPEV — rede brasileira para pesquisa, formação e colabora�
       <p>Pesquisadores, estudantes, educadores e profissionais ligados à ciência e tecnologia de vidros podem registrar seu interesse no formulário da rede.</p>
     </div>
     <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSd8ytkaU0JRx6_qMXVemoYv5HuZUh2QcRqJa7jpONAVdQKxHw/viewform" target="_blank" rel="noopener">Acessar formulário de inscrição</a>
+  </div>
+</section>
+
+<section class="section tinted">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">O que queremos construir</p>
+      <h2>As primeiras frentes previstas para o site.</h2>
+      <p>A lista não é fechada: estas são as frentes que a rede pretende abrir primeiro, e outras propostas da comunidade são bem-vindas.</p>
+    </div>
+    <div class="card-grid">
+      <article class="card">
+        <h3>Diretório científico da comunidade</h3>
+        <p>Cadastro abrangente de pesquisadores, professores, pós-doutorandos e estudantes atuantes na área.</p>
+      </article>
+      <article class="card">
+        <h3>Divulgação de notícias e avanços</h3>
+        <p>Portal de notícias sobre novas descobertas científicas, inovações tecnológicas e acontecimentos do setor.</p>
+      </article>
+      <article class="card">
+        <h3>Mural de oportunidades</h3>
+        <p>Canal de divulgação de vagas acadêmicas (iniciação científica, mestrado, doutorado, pós-doutorado) e empregos no setor industrial e acadêmico.</p>
+      </article>
+      <article class="card">
+        <h3>Catálogo de infraestrutura e laboratórios</h3>
+        <p>Mapeamento e catálogo centralizado de equipamentos multiusuários (Raman, difratômetros, DSC, dilatômetros) para otimizar o uso da infraestrutura existente no país.</p>
+      </article>
+      <article class="card">
+        <h3>Materiais didáticos para o ensino básico</h3>
+        <p>Guias de experimentos simples e conteúdos educativos para professores do ensino fundamental e médio, despertando o interesse de jovens pela ciência dos materiais.</p>
+      </article>
+    </div>
+    <p class="section-note">Quer contribuir com conteúdo para alguma dessas frentes? Envie o material por e-mail e ele será incorporado ao site — os endereços estão em <a href="{{ '/contato/' | relative_url }}">Contato</a>.</p>
   </div>
 </section>

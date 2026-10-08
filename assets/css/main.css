@@ -212,6 +212,18 @@ h1, h2, h3 { line-height: 1.15; letter-spacing: -.025em; color: var(--text); }
 .event-meta dt { color: var(--muted); font-weight: 650; font-size: .92rem; padding-top: 1px; }
 .event-meta dd { margin: 0; }
 
+.news-item--featured { padding: 24px 26px; }
+.prose .news-item--featured .event-item__title { font-size: clamp(1.3rem, 3vw, 1.6rem); margin-bottom: 8px; }
+.news-item--featured .event-item__summary { font-size: 1rem; }
+.news-item__actions { margin: 12px 0 0; }
+.prose .news-item__more { color: var(--brand); font-weight: 680; font-size: .92rem; }
+.prose .news-older { margin-top: 2em; font-size: 1.3rem; }
+.news-source { margin: 40px 0 0; padding: 22px 24px; border: 1px solid var(--line); border-left: 4px solid var(--brand); border-radius: 8px; background: var(--surface); }
+.news-source p { margin: 0; }
+.prose .news-source__label { color: var(--accent); text-transform: uppercase; letter-spacing: .13em; font-size: .72rem; font-weight: 760; }
+.prose .news-source__title { margin-top: 8px; font-size: 1.1rem; font-weight: 680; line-height: 1.35; }
+.prose .news-source__name { margin: 4px 0 16px; color: var(--muted); font-size: .92rem; }
+
 .page-shell { width: min(calc(100% - 40px), 900px); margin-inline: auto; padding: 72px 0 90px; }
 .page-header { margin-bottom: 38px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
 .page-header h1 { margin: 0; font-size: clamp(2.35rem, 6vw, 4.5rem); }

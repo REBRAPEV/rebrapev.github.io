@@ -16,6 +16,9 @@ collections:
   eventos:
     output: true
     permalink: /eventos/:name/
+  noticias:
+    output: true
+    permalink: /noticias/:name/
 
 defaults:
   - scope:
@@ -23,6 +26,11 @@ defaults:
       type: eventos
     values:
       layout: evento
+  - scope:
+      path: ""
+      type: noticias
+    values:
+      layout: noticia
 
 plugins:
   - jekyll-feed

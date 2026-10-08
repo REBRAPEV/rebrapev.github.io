@@ -5,6 +5,8 @@ main:
     url: /rede/
   - title: Pesquisa
     url: /pesquisa/
+  - title: Notícias
+    url: /noticias/
   - title: Eventos
     url: /eventos/
   - title: Recursos

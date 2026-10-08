@@ -1,0 +1,44 @@
+---
+layout: default
+---
+{%- comment -%}
+  News item page for documents in _noticias/. When source_url is set, a box
+  after the text links to the original article.
+{%- endcomment -%}
+{%- capture lang_name -%}
+  {%- case page.source_lang -%}
+    {%- when 'fr' -%}francês
+    {%- when 'en' -%}inglês
+    {%- when 'es' -%}espanhol
+    {%- when 'de' -%}alemão
+    {%- when 'it' -%}italiano
+  {%- endcase -%}
+{%- endcapture -%}
+<article class="page-shell event-page">
+  <p class="event-back"><a href="{{ '/noticias/' | relative_url }}">← Todas as notícias</a></p>
+  <header class="page-header">
+    <p class="eyebrow">Notícia</p>
+    <h1>{{ page.title }}</h1>
+    <dl class="event-meta">
+      <div><dt>Publicado em</dt><dd><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%d.%m.%Y' }}</time></dd></div>
+      {%- if page.source %}
+      <div><dt>Fonte</dt><dd>{{ page.source }}{% if page.source_date %}, <time datetime="{{ page.source_date | date: '%Y-%m-%d' }}">{{ page.source_date | date: '%d.%m.%Y' }}</time>{% endif %}{% if lang_name != '' %} (em {{ lang_name }}){% endif %}</dd></div>
+      {%- endif %}
+    </dl>
+  </header>
+  <div class="prose">
+    {%- if page.image %}
+    {% include event-figure.html src=page.image alt=page.image_alt caption=page.image_caption wide=true %}
+    {%- endif %}
+    {{ content }}
+    {%- if page.source_url %}
+    <aside class="news-source" aria-label="Matéria original">
+      <p class="news-source__label">Matéria original{% if lang_name != '' %} (em {{ lang_name }}){% endif %}</p>
+      <p class="news-source__title"{% if page.source_lang %} lang="{{ page.source_lang }}"{% endif %}>{{ page.source_title | default: page.title }}</p>
+      <p class="news-source__name">{{ page.source }}</p>
+      <a class="button" href="{{ page.source_url }}" target="_blank" rel="noopener">Ler a matéria original ↗</a>
+    </aside>
+    {%- endif %}
+  </div>
+  <p class="event-back event-back--end"><a href="{{ '/noticias/' | relative_url }}">← Todas as notícias</a></p>
+</article>

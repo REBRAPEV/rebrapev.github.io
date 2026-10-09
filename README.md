@@ -37,7 +37,7 @@ files, so nothing else needs editing.
    format: presencial        # presencial | online | híbrido
    context: "Host event"     # optional
    participants: "..."       # optional
-   type: rede                # rede (REBRAPEV event) | comunidade (event of interest)
+   type: rede                # rede (REBRAPEV event, can be featured on the home page) | comunidade (event of interest, listed on /eventos/ only)
    summary: "One sentence for the index card and the home page."
    cover: /assets/images/eventos/<slug>/photo.jpg      # optional
    cover_alt: "Description of the photo"

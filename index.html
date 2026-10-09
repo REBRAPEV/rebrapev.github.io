@@ -36,13 +36,15 @@ description: "REBRAPEV — rede brasileira para pesquisa, formação e colabora�
 {%- endif %}
 
 {%- comment -%}
-  Featured event: the next upcoming one, or else the most recent past one.
-  Decided at build time, like the lists on /eventos/.
+  Featured event: the next upcoming REBRAPEV event, or else the most recent
+  past one. Only the network's own events (type rede) are featured; events
+  of interest (type comunidade) appear on /eventos/ only. Decided at build
+  time, like the lists on /eventos/.
 {%- endcomment -%}
 {%- assign today = site.time | date: '%Y-%m-%d' -%}
 {%- assign featured_event = nil -%}
 {%- assign featured_upcoming = false -%}
-{%- assign sorted_events = site.eventos | sort: 'date' -%}
+{%- assign sorted_events = site.eventos | where_exp: 'ev', "ev.type != 'comunidade'" | sort: 'date' -%}
 {%- for ev in sorted_events -%}
   {%- assign last_day = ev.end_date | default: ev.date | date: '%Y-%m-%d' -%}
   {%- if last_day >= today -%}
